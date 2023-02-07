@@ -67,7 +67,7 @@
                         const barrierTiles = [84, 92, 100, 101, 105, 106, 120, 121, 114, 115, 122, 123, 189, 190, 191, 216, 217, 218, 224, 225, 226];
                         const shelterTiles = [93, 112, 113, 208, 209, 210]
 
-                        rowNo = 3;
+                        rowNo = 1;
                         /*rowNo = 0*/
                         const isRoad = data[0 * 27 * 45 + i * 45 + j] >= 2864 && data[0 * 27 * 45 + i * 45 + j] < 2912 && (data[1 * 27 * 45 + i * 45 + j] < 3008 || data[1 * 27 * 45 + i * 45 + j] >= 3055);
                         const isWater = data[0 * 27 * 45 + i * 45 + j] >= 2048 && data[0 * 27 * 45 + i * 45 + j] < 2095 && data[3 * 27 * 45 + i * 45 + j] != 17;
@@ -81,7 +81,7 @@
                         const isBarrier = barrierTiles.includes(data[2 * 27 * 45 + i * 45 + j]) || barrierTiles.includes(data[3 * 27 * 45 + i * 45 + j]);
                         /* isShelter && !isBarrier */
                         const isShelter = shelterTiles.includes(data[2 * 27 * 45 + i * 45 + j]) || shelterTiles.includes(data[3 * 27 * 45 + i * 45 + j]);
-                        if(isShelter && !isBarrier && !isCliff & !isWater){
+                        if(isGrass){
                             $(i +"_"+ j).style.backgroundColor = "rgb(255, 0, 0, 0.5)";
                         }
                     }
